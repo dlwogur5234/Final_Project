@@ -39,6 +39,12 @@
               <!-- Content 내용 여기로 -->
               <div class="container-xxl flex-grow-1 container-p-y">
               
+              <div style='width:99%;'><i class='bx bxs-battery-charging' style='font-size:26px !important'></i>&nbsp;<label style='font-size:16px; font-weight:500'> 진행률</label>
+		    <div class='progress' style='background:none; font-size:15px; margin-bottom:30px; width:99%; background:rgba(67,89,113,.1); height:20px; margin-top:2px; margin-right:60px'>
+		        <div class="progress-bar bg-info" role="progressbar" style="height:20px" aria-valuemin="0" aria-valuemax="100  margin-right:60px"></div>
+		    </div>
+		    </div>
+              
               		<button class="btn btn-primary" data-bs-toggle="modal"  data-bs-target="#exampleModal" onclick="passValueToModal()">운동추가</button>
                 	<table class="table">
                 	
