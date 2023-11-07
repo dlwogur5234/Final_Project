@@ -43,4 +43,12 @@ public class PtTypeService {
 		
 		return ptTypeDAO.delType(ptTypeVO);
 	}
+	//진행률 조회
+	public int selectExAll(PtTypeVO ptTypeVO) throws Exception{
+		return ptTypeDAO.selectExAll(ptTypeVO);
+	}
+	//진행완료
+	public int selectComplete(PtTypeVO ptTypeVO) throws Exception{
+		return ptTypeDAO.selectComplete(ptTypeVO);
+	}
 }

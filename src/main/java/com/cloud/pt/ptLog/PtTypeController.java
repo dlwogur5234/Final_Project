@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import lombok.extern.slf4j.Slf4j;
@@ -23,6 +24,9 @@ public class PtTypeController {
 	
 	@Autowired
 	private PtTypeService ptTypeService;
+	private Object all;
+	
+	
 	@GetMapping("ptLog")
 	public ModelAndView getTypeList() throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -56,4 +60,19 @@ public class PtTypeController {
 		int result = ptTypeService.delType(ptTypeVO);
 		return "redirect:./ptLog";
 	}
+	
+	//운동 진행률을 위한 조회
+		@ResponseBody
+		@RequestMapping("progress.cl")
+		public int ajaxSelectExAll(PtTypeVO ptTypeVO) throws Exception{
+			
+			
+			int all = ptTypeService.selectExAll(ptTypeVO); //전체 갯수
+			int complete = ptTypeService.selectComplete(ptTypeVO); //완료된 갯수
+			
+			double c = complete;
+			int result = (int)Math.round((c / all) * 100); //int값으로 반환하기위함
+			
+			return result;
+		}
 }

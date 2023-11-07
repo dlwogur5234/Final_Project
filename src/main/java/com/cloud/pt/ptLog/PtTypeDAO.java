@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -15,4 +16,10 @@ public interface PtTypeDAO {
 	public int addType(PtTypeVO ptTypeVO) throws Exception;
 	
 	public int delType(PtTypeVO ptTypeVO) throws Exception;
+	
+	public int selectExAll(PtTypeVO ptTypeVO) throws Exception; 
+	
+	public int selectComplete(PtTypeVO ptTypeVO) throws Exception; 
+		
+	
 }
